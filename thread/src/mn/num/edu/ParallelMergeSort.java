@@ -12,7 +12,6 @@ public class ParallelMergeSort {
   }
 
   private static class SortTask extends RecursiveAction {
-    private final int THRESHOLD = 500;
 
     private final int[] list;
 
@@ -22,6 +21,7 @@ public class ParallelMergeSort {
 
     @Override
     protected void compute() {
+      int THRESHOLD = 500;
       if (list.length < THRESHOLD)
         java.util.Arrays.sort(list);
       else {
